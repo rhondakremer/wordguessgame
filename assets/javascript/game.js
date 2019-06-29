@@ -1,83 +1,96 @@
 $(document).ready(function() {
 
-
-var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado"];//array of words to guess
-var guessesLeft = 10;//number of guesses left
-//inputArray = user's guess
-var inputArray = [];//random displayed as _
-var wins = 0;//# of wins
-var losses = 0;//# of losses
+//array of words to guess
+var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon"];
+//number of guesses left
+var guessesLeft = 15;
+//random displayed as _
+var inputArray = [];
+var wins = 0;
+var losses = 0;
+// stores letters guessed
 var guessedLetters = [];
-var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];//pick random word from workBank array
-var wordAsArray = randomWord.split('');//splits randomWord
+//pick random word from workBank array
+var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+//splits randomWord
+var wordAsArray = randomWord.split('');
+var remainingLetters = randomWord.length;
 
-console.log(wordAsArray);
+function restart() {
+    guessesLeft = 15;
+    inputArray = [];
+    guessedLetters = [];
+    randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+    wordAsArray = randomWord.split('');
+    remainingLetters = randomWord.length;
+    $("#currentWord").empty();
+    $("#incorrect").empty();
+    console.log(randomWord);
+    
+    for (let i = 0; i < randomWord.length; i++) {
+        inputArray[i] = "_ ";
+        $("#currentWord").append("<span>"+inputArray[i]+"</span>");
+    }
+}
+
+
+//console.log(wordAsArray);
 console.log(randomWord);
+
 //display word on screen as underscores
 for (let i = 0; i < randomWord.length; i++) {
     inputArray[i] = "_ ";
-    $("#currentWord").append("<span>"+inputArray[i]+"</span>")
+    $("#currentWord").append("<span>"+inputArray[i]+"</span>");
 }
-
-//var updateGuessesLeft = function () {
- //    document.querySelector('#guessesLeft').innerHTML = guessesLeft;
-//}
-
-//var updateGuessesSoFar = function () {
-    document.querySelector('#guessesSoFar').innerHTML = guessedLetters.join(', ');
-//}
-
-//var updateLetterToGuess;
-
 
 
 //record character inputted from user
-
 document.addEventListener('keydown', function(event) {
-    console.log(event.key);
-    //guessesLeft--;
-    //console.log(guessesLeft);
     var letter = event.key.toLowerCase();
-    //updateGuessesLeft();
-    //updateGuessesSoFar();
-    //IF it matches, reveal letter
-    for (let i = 0; i < randomWord.length; i++) {
-        if (letter == wordAsArray[i]) {
-            inputArray[i] = letter;
-            document.getElementById("currentWord").innerHTML = inputArray.join("");
+    guessedLetters.push(letter);
+    document.getElementById("incorrect").innerHTML = guessedLetters.join("");
+    guessesLeft--;
+    $("#guessesLeft").html("<span>" + guessesLeft + "</span>");
+    if (guessesLeft == 0) 
+    {
+        alert('you suck!');
+        losses++;
+        $("#losses").html("<span>" + losses + "</span>");
+    } 
+
+// Reveals letter if found in word
+for (let i = 0; i < randomWord.length; i++) {
+    if (letter == wordAsArray[i]) {
+
+        inputArray[i] = letter;
+        document.getElementById("currentWord").innerHTML = inputArray.join("");
+        var renderedWord = document.getElementById("currentWord").innerHTML;
+
+		if(renderedWord.indexOf("_") === -1) {
+            wordComplete = true;
+
+            if (wordComplete = true) {
+                alert("Yummy, " + randomWord);
+                wins++;
+                $("#wins").html("<span>" + wins + "</span>");
+                restart();
+            }
         }
-        
+       
+        }
     }
-    /*
-        //wins++;
-       // document.querySelector('#wins').innerHTML = wins;
-        document.querySelector('#currentWord').innerHTML = letter;
-        //where this is TRUE, print out the leter. The letter is the input.So it's where the input = letter in random word
-        //reset();
-    };*/
-
 
 
     }
-)
-
-//check if character inputted matches any from word for (if char equals)
 
 
 
+//var reset = function () {}
 
-
-var reset = function () {}
-
-//var win  function (){};
-//var losses 
-
-//ELSE add letter to guessed column and subtract one from guesses remaining
 
 //do not accept character that has already been guessed
 
-//when all letters are guessed, add 1 to wins total
 
 //when 1 is added to wins, generate new word and reset letters guessed */
 
-});
+)});
