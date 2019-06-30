@@ -28,7 +28,7 @@ $(document).ready(function() {
     }
     
     var updateGuessesSoFar = function () {
-        //user guesses displayed as letters separated by a comma
+        //user guesses displayed as letters
         document.querySelector('#guesses-so-far').innerHTML = guessedLetters.join(', ');
     }
     

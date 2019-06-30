@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 //array of words to guess
-var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon"];
+var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon", "strawberry"];
 //number of guesses left
 var guessesLeft = 15;
 //random displayed as _
@@ -15,24 +15,7 @@ var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 //splits randomWord
 var wordAsArray = randomWord.split('');
 var remainingLetters = randomWord.length;
-
-function restart() {
-    guessesLeft = 15;
-    inputArray = [];
-    guessedLetters = [];
-    randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-    wordAsArray = randomWord.split('');
-    remainingLetters = randomWord.length;
-    $("#currentWord").empty();
-    $("#incorrect").empty();
-    console.log(randomWord);
-    
-    for (let i = 0; i < randomWord.length; i++) {
-        inputArray[i] = "_ ";
-        $("#currentWord").append("<span>"+inputArray[i]+"</span>");
-    }
-}
-
+wordComplete = false;
 
 //console.log(wordAsArray);
 console.log(randomWord);
@@ -47,16 +30,23 @@ for (let i = 0; i < randomWord.length; i++) {
 //record character inputted from user
 document.addEventListener('keydown', function(event) {
     var letter = event.key.toLowerCase();
+
+    if((guessedLetters.includes(letter) == false) && (wordComplete == false))
+    {
     guessedLetters.push(letter);
-    document.getElementById("incorrect").innerHTML = guessedLetters.join("");
     guessesLeft--;
+    }
+
+    //guessedLetters.push(letter);
+    document.getElementById("incorrect").innerHTML = guessedLetters.join("");
+    
     $("#guessesLeft").html("<span>" + guessesLeft + "</span>");
     if (guessesLeft == 0) 
     {
-        alert('you suck!');
         losses++;
         $("#losses").html("<span>" + losses + "</span>");
     } 
+    
 
 // Reveals letter if found in word
 for (let i = 0; i < randomWord.length; i++) {
@@ -70,22 +60,48 @@ for (let i = 0; i < randomWord.length; i++) {
             wordComplete = true;
 
             if (wordComplete = true) {
-                alert("Yummy, " + randomWord);
                 wins++;
                 $("#wins").html("<span>" + wins + "</span>");
-                restart();
             }
+        
         }
-       
+            
+        }
+    
+    }
+   
+
+    function restart() {
+    
+        inputArray = [];
+        guessedLetters = [];
+        randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+        wordAsArray = randomWord.split('');
+        remainingLetters = randomWord.length;
+        guessesLeft = 15;
+        $("#incorrect").html("<span>" + "-" + "</span>");
+        $("#guessesLeft").html("<span>" + guessesLeft + "</span>");
+        $("#currentWord").empty();
+        
+    
+        
+        for (let i = 0; i < randomWord.length; i++) {
+            inputArray[i] = "_ ";
+            $("#currentWord").append("<span>"+inputArray[i]+"</span>");
         }
     }
 
+    $("#restart").click(function(){
+        restart();
+      });
+      
 
-    }
+    })
 
 
 
-//var reset = function () {}
+
+
 
 
 //do not accept character that has already been guessed
@@ -93,4 +109,5 @@ for (let i = 0; i < randomWord.length; i++) {
 
 //when 1 is added to wins, generate new word and reset letters guessed */
 
-)});
+
+});
