@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 //array of words to guess
-var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon", "strawberry"];
+var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon", "strawberry", "blueberry", "cantaloupe"];
 //number of guesses left
 var guessesLeft = 15;
 //random displayed as _
@@ -30,6 +30,10 @@ for (let i = 0; i < randomWord.length; i++) {
 
 //record character inputted from user
 document.addEventListener('keydown', function(event) {
+    if (wordComplete == true)
+    {
+        return;
+    }
     var letter = event.key.toLowerCase();
     if((guessedLetters.includes(letter) == false) && (wordComplete == false))
     {
@@ -102,16 +106,6 @@ for (let i = 0; i < randomWord.length; i++) {
 
     })
 
-
-
-
-
-
-
-//do not accept character that has already been guessed
-
-
-//when 1 is added to wins, generate new word and reset letters guessed */
 
 
 });
