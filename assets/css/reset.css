@@ -48,7 +48,7 @@ table {
 }
 
 body {
-    background-color: paleturquoise;
+    background-color: lavenderblush;
 }
 
 #everything {
@@ -56,12 +56,31 @@ body {
     float: left;
 }
 
-#image {
-    float: right;
+#youwin {
+    float: inline;
+    font-size: 100px;
+    padding-top: 100px;
+    padding-left: 500px;
 }
 
-#youwin {
-    width: 50%;
-    height: auto;
-    margin: 0;
+.italics {
+    font-style: italic;
+}
+
+.jumbotron {
+    border-bottom: 1px solid black;
+}
+
+.button {
+    margin-top: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#fruit {
+    height: 200px;
+    float: right;
+    margin-top: -145px;
 }

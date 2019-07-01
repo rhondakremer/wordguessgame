@@ -6,22 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/javascript/game.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <title>Document</title>
 </head>
 <body>
+
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">HANGMAN</h1>
+                  <p class="lead italics">Press any letter to start!</p>
+                  <img id="fruit" src="assets/images/fruit.png">
+                </div>
+              </div>
+
     <div id="everything">
         <div id="currentWord"></div>
         <br>
-        <div id="lettersguessed">Letters Guessed: </div>
+        <div id="lettersguessed" class="bold">Letters Guessed: </div>
         <div id="incorrect">-</div>
-        <div id="guesseslefttext">Guesses Left: </div>
-        <div id="guessesLeft">10</div>
-        <div id="winstext">Wins: </div>
+        <div id="guesseslefttext" class="bold">Guesses Left: </div>
+        <div id="guessesLeft">15</div>
+        <div id="winstext" class="bold">Wins: </div>
         <div id="wins">0</div>
-        <div id="lossestext">Losses: </div>
+        <div id="lossestext" class="bold">Losses: </div>
         <div id="losses">0</div>
-        <button id="restart">Click here to play again!</button>
+        <button id="restart" class="button">Click here to play again!</button>
+    </div>
+
+    <div id="youwin">
+
     </div>
 
     

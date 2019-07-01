@@ -16,6 +16,7 @@ var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 var wordAsArray = randomWord.split('');
 var remainingLetters = randomWord.length;
 wordComplete = false;
+alphabet = [];
 
 //console.log(wordAsArray);
 console.log(randomWord);
@@ -30,7 +31,6 @@ for (let i = 0; i < randomWord.length; i++) {
 //record character inputted from user
 document.addEventListener('keydown', function(event) {
     var letter = event.key.toLowerCase();
-
     if((guessedLetters.includes(letter) == false) && (wordComplete == false))
     {
     guessedLetters.push(letter);
@@ -45,6 +45,7 @@ document.addEventListener('keydown', function(event) {
     {
         losses++;
         $("#losses").html("<span>" + losses + "</span>");
+        $("#youwin").html("<span>" + "YOU LOSE!!!!" + "</span>");
     } 
     
 
@@ -59,17 +60,18 @@ for (let i = 0; i < randomWord.length; i++) {
 		if(renderedWord.indexOf("_") === -1) {
             wordComplete = true;
 
-            if (wordComplete = true) {
+            if (wordComplete == true & (guessesLeft > -1)){
                 wins++;
                 $("#wins").html("<span>" + wins + "</span>");
-            }
-        
-        }
+                $("#youwin").html("<span>" + "YOU WIN!!!!" + "</span>");
+                
+            } 
             
         }
-    
+        
+        }
+        
     }
-   
 
     function restart() {
     
@@ -82,12 +84,14 @@ for (let i = 0; i < randomWord.length; i++) {
         $("#incorrect").html("<span>" + "-" + "</span>");
         $("#guessesLeft").html("<span>" + guessesLeft + "</span>");
         $("#currentWord").empty();
+        $("#youwin").empty();
+        wordComplete = false;
         
-    
         
         for (let i = 0; i < randomWord.length; i++) {
             inputArray[i] = "_ ";
             $("#currentWord").append("<span>"+inputArray[i]+"</span>");
+            console.log(wordAsArray);
         }
     }
 
