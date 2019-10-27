@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     //array of words to guess
-    var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon", "strawberry", "blueberry", "cantaloupe"];
+    var wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon", "strawberry", "blueberry", "cantaloupe", "cherry", "guava", "raspberry"];
     //number of guesses left
     var guessesLeft = 15;
     //random displayed as _

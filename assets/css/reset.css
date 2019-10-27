@@ -52,8 +52,10 @@ body {
 }
 
 #everything {
-    margin: 20px;
+    margin: 25px;
     float: left;
+    font-size: 20px;
+    line-height: 25px;
 }
 
 #youwin {
