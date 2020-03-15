@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/javascript/game.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <title>Super Fun Hangman Game</title>
-</head>
-<body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="./assets/javascript/game.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+      <title>Super Fun Hangman Game</title>
+  </head>
 
-        <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4">HANGMAN</h1>
-                  <p class="lead italics">Press any letter to start!</p>
-                  <img id="fruit" src="assets/images/fruit.png">
-                </div>
-              </div>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">HANGMAN</h1>
+        <p class="lead italics">Press any letter to start!</p>
+        <img id="fruit" src="assets/images/fruit.png">
+      </div>
+    </div>
 
     <div id="everything">
         <div id="currentWord"></div>
@@ -34,11 +34,7 @@
         <button id="restart" class="button">Click here to play again!</button>
     </div>
 
-    <div id="youwin">
+    <div id="result"></div>
 
-    </div>
-
-    
-    
-</body>
+  </body>
 </html>
