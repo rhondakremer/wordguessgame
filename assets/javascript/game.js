@@ -19,7 +19,7 @@ $(document).ready(function () {
     alphabet = [];
 
     //console.log(wordAsArray);
-    console.log(randomWord);
+    // console.log(randomWord);
 
     //display word on screen as underscores
     for (let i = 0; i < randomWord.length; i++) {
@@ -33,8 +33,9 @@ $(document).ready(function () {
         if (wordComplete == true) {
             return;
         }
+        console.log(event.which)
         var letter = event.key.toLowerCase();
-        if ((guessedLetters.includes(letter) == false) && (wordComplete == false)) {
+        if ((guessedLetters.includes(letter) == false) && (wordComplete == false) && (event.which >= 65) && (event.which <= 90)) {
             guessedLetters.push(letter);
             guessesLeft--;
         }
