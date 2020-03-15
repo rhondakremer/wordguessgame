@@ -1,0 +1,49 @@
+body {
+    background-color: lavenderblush;
+}
+
+#container {
+    background-color: white;
+}
+
+#game-status {
+    width: 30%;
+    font-size: 20px;
+    line-height: 25px;
+    display: inline-block;
+    margin-left: 23%;
+    margin-top: 4%;
+}
+
+#result {
+    float: inline;
+    font-size: 100px;
+    padding-top: 100px;
+    padding-left: 500px;
+}
+
+.italics {
+    font-style: italic;
+}
+
+#currentWord {
+    letter-spacing: 2px;
+}
+
+.jumbotron {
+    border-bottom: 1px solid black;
+}
+
+.button {
+    margin-top: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#fruit {
+    height: 200px;
+    float: right;
+    margin-top: -145px;
+}

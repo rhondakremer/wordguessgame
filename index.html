@@ -8,19 +8,25 @@
       <script src="./assets/javascript/game.js"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-      <title>Super Fun Hangman Game</title>
+      <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+      <link rel="stylesheet" type="text/css" href="./assets/css/hangman.css">
+      <title>Hangman Game</title>
   </head>
 
   <body>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4">HANGMAN</h1>
+        <p class="lead">The topic is... famous French horn players!</p>
+        <br>
         <p class="lead italics">Press any letter to start!</p>
         <img id="fruit" src="assets/images/fruit.png">
       </div>
     </div>
 
-    <div id="everything">
+    <div id="container">
+
+    <div id="game-status">
         <div id="currentWord"></div>
         <br>
         <div id="lettersguessed" class="bold">Letters Guessed: </div>
@@ -34,7 +40,24 @@
         <button id="restart" class="button">Click here to play again!</button>
     </div>
 
-    <div id="result"></div>
 
+
+    <div id="hangman">
+      <div id="top-line"></div>
+      <div id="long-vertical-line"></div>
+      <div id="short-vertical-line"></div>
+      <div id="bottom-line"></div>
+      <div id="head"></div>
+      <div id="body"></div>
+      <div id="left-arm"></div>
+      <div id="right-arm"></div>
+      <div id="left-leg"></div>
+      <div id="right-leg"></div>
+      <img id="french-horn" src="./assets/images/frenchhorn.png" />
+    </div>
+
+  </div>
+  
+  <div id="result"></div>
   </body>
 </html>

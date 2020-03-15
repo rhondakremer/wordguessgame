@@ -1,12 +1,13 @@
 $(document).ready(function () {
 
     // array of words to guess
-    const wordBank = ["apple", "banana", "grapes", "starfruit", "pineapple", "jackfruit", "avocado", "watermelon", "strawberry", "blueberry", "cantaloupe", "cherry", "guava", "raspberry"];
-
-    // Declare variable
+    const wordBank = ["Dale Clevenger", "Dennis Brain", "Aubrey Brain", "Barry Tuckwell", "Sarah Willis", "Amber Dean", "Radek Baborak", "Radovan Vlatkovic", "Froydis Ree Wekre"];
+    const hangmanParts = ["head", "body", "left-arm", "right-arm", "left-leg", "right-leg", "french-horn"]
+    // Declare variables
     let randomWord;
     let wordAsArray;
     let guessesLeft;
+    let hangmanPartsIndex = 0;
     let underscoresArray = []; // random word displayed as _
     let guessedLetters = [];
     let wordComplete;
@@ -16,7 +17,7 @@ $(document).ready(function () {
     // Functions
     //display word on screen as underscores
     function initializeGame() {
-        randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+        randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCase();
         wordAsArray = randomWord.split('');
         guessesLeft = 7;
         underscoresArray = [];
@@ -27,33 +28,43 @@ $(document).ready(function () {
         $("#currentWord").empty();
         $("#result").empty();
         wordToUnderscores();
-        // console.log(randomWord);
+        console.log(randomWord);
+        console.log(wordAsArray)
     }
 
     function wordToUnderscores() {
         for (let i = 0; i < wordAsArray.length; i++) {
-            underscoresArray[i] = "_ ";
+            if (wordAsArray[i] !== " ") {
+                underscoresArray[i] = "_"; 
+            }
+            else {
+                underscoresArray[i] = wordAsArray[i]
+            }
             $("#currentWord").append("<span>" + underscoresArray[i] + "</span>");
         }
     }
 
     // Reveals letter if found in word
     function isLetterInWord(letter) {
-        for (let i = 0; i < wordAsArray.length; i++) {
-            if (letter === wordAsArray[i]) {
-                underscoresArray[i] = letter
-                document.getElementById("currentWord").innerHTML = underscoresArray.join(" ");
+        if (guessesLeft > 0) {
+            for (let i = 0; i < wordAsArray.length; i++) {
+                if (letter === wordAsArray[i]) {
+                    underscoresArray[i] = letter
+                    document.getElementById("currentWord").innerHTML = underscoresArray.join("");
+                }
+                else if (!guessedLetters.includes(letter) && !wordComplete && (event.which >= 65) && event.which <= 90 && !wordAsArray.includes(letter)) {
+                    guessedLetters.push(letter);
+                    guessesLeft--;
+                    document.getElementById(hangmanParts[hangmanPartsIndex]).style.visibility = "visible";
+                    hangmanPartsIndex++;
+                }
             }
-            else if (!guessedLetters.includes(letter) && !wordComplete && (event.which >= 65) && event.which <= 90 && !wordAsArray.includes(letter)) {
-                guessedLetters.push(letter);
-                guessesLeft--;
-            }
+            isWordComplete() 
         }
-        isWordComplete() 
     }
 
     function isWordComplete() {
-        var renderedWord = document.getElementById("currentWord").innerHTML;
+        let renderedWord = document.getElementById("currentWord").innerHTML;
         if (renderedWord.indexOf("_") === -1 && guessesLeft > -1) {
             wins++;
             $("#wins").html("<span>" + wins + "</span>");
@@ -63,6 +74,7 @@ $(document).ready(function () {
             losses++;
             $("#losses").html("<span>" + losses + "</span>");
             $("#result").html("<span>" + "YOU LOSE!!!!" + "</span>");
+            return;
         }
     }
 
@@ -73,9 +85,9 @@ $(document).ready(function () {
         if (wordComplete == true) {
             return;
         }
-        var letter = event.key.toLowerCase();
+        let letter = event.key.toLowerCase();
         isLetterInWord(letter)
-        document.getElementById("incorrect").innerHTML = guessedLetters.join(" ");
+        document.getElementById("incorrect").innerHTML = guessedLetters.join("");
         $("#guessesLeft").html("<span>" + guessesLeft + "</span>");
     }) 
 

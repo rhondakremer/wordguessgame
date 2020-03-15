@@ -21,7 +21,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	vertical-align: top;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -45,44 +45,4 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-body {
-    background-color: lavenderblush;
-}
-
-#everything {
-    margin: 25px;
-    float: left;
-    font-size: 20px;
-    line-height: 25px;
-}
-
-#result {
-    float: inline;
-    font-size: 100px;
-    padding-top: 100px;
-    padding-left: 500px;
-}
-
-.italics {
-    font-style: italic;
-}
-
-.jumbotron {
-    border-bottom: 1px solid black;
-}
-
-.button {
-    margin-top: 10px;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-#fruit {
-    height: 200px;
-    float: right;
-    margin-top: -145px;
 }
