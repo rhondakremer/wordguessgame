@@ -22,12 +22,14 @@ $(document).ready(function () {
         guessesLeft = 7;
         underscoresArray = [];
         guessedLetters = [];
+        hangmanPartsIndex = 0;
         wordComplete = false;
         $("#incorrect").html("<span>" + "-" + "</span>");
         $("#guessesLeft").html("<span>" + guessesLeft + "</span>");
         $("#currentWord").empty();
         $("#result").empty();
         wordToUnderscores();
+        hideHangman();
         console.log(randomWord);
         console.log(wordAsArray)
     }
@@ -75,6 +77,12 @@ $(document).ready(function () {
             $("#losses").html("<span>" + losses + "</span>");
             $("#result").html("<span>" + "YOU LOSE!!!!" + "</span>");
             return;
+        }
+    }
+
+    function hideHangman() {
+        for (let i = 0; i < hangmanParts.length; i++) {
+            document.getElementById(hangmanParts[i]).style.visibility = "hidden";
         }
     }
 
