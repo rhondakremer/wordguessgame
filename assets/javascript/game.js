@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // array of words to guess
-    const wordBank = ["Dale Clevenger", "Dennis Brain", "Aubrey Brain", "Barry Tuckwell", "Sarah Willis", "Amber Dean", "Radek Baborak", "Radovan Vlatkovic", "Froydis Ree Wekre"];
+    const wordBank = ["Dale Clevenger", "Dennis Brain", "Aubrey Brain", "Barry Tuckwell", "Sarah Willis", "Amber Dean", "Radek Baborak", "Radovan Vlatkovic", "Froydis Ree Wekre", "David Allen Cooper", "Daniel Gingrich", "Otto Carrillo", "Carsten Duffin", "Stefan Dohr", "Denise Tryon", "Julie Landsman"];
     const hangmanParts = ["head", "body", "left-arm", "right-arm", "left-leg", "right-leg", "french-horn"]
     // Declare variables
     let randomWord;
@@ -24,7 +24,7 @@ $(document).ready(function () {
         guessedLetters = [];
         hangmanPartsIndex = 0;
         wordComplete = false;
-        $("#incorrect").html("<span>" + "-" + "</span>");
+        $("#incorrect").empty();
         $("#guessesLeft").html("<span>" + guessesLeft + "</span>");
         $("#currentWord").empty();
         $("#result").empty();
@@ -52,6 +52,9 @@ $(document).ready(function () {
             for (let i = 0; i < wordAsArray.length; i++) {
                 if (letter === wordAsArray[i]) {
                     underscoresArray[i] = letter
+                    if (underscoresArray[i-1] === " " || i === 0) {
+                        underscoresArray[i] = underscoresArray[i].toUpperCase()
+                    }
                     document.getElementById("currentWord").innerHTML = underscoresArray.join("");
                 }
                 else if (!guessedLetters.includes(letter) && !wordComplete && (event.which >= 65) && event.which <= 90 && !wordAsArray.includes(letter)) {

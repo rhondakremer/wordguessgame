@@ -1,9 +1,24 @@
-body {
-    background-color: lavenderblush;
+.jumbotron {
+    background-image: url("../images/colorful_notes.png");
+    border-bottom: 1px solid black;
+    background-color: rgb(203, 26, 219)
 }
 
-#container {
-    background-color: white;
+body {
+    background-color: rgb(225, 226, 243);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 0.3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#jumbotron-words {
+    margin: 0 10% 0;
 }
 
 #game-status {
@@ -26,24 +41,31 @@ body {
     font-style: italic;
 }
 
-#currentWord {
+#currentWord, #incorrect {
     letter-spacing: 2px;
 }
 
-.jumbotron {
-    border-bottom: 1px solid black;
+#incorrect {
+    min-height: 25px;
 }
 
 .button {
     margin-top: 10px;
+    border-radius: 0.3rem;
+    background-color: rgb(158, 20, 170);
+    color: whitesmoke;
+    padding: 5px;
 }
 
 .bold {
     font-weight: bold;
 }
 
-#fruit {
-    height: 200px;
-    float: right;
-    margin-top: -145px;
+.side-image {
+    width: 15%;
+}
+
+#right-side-image {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }

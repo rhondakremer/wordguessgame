@@ -16,11 +16,16 @@
   <body>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">HANGMAN</h1>
-        <p class="lead">The topic is... famous French horn players!</p>
-        <br>
-        <p class="lead italics">Press any letter to start!</p>
-        <img id="fruit" src="assets/images/fruit.png">
+        <img src="./assets/images/blackhorn.png" class="side-image" />
+
+        <div id="jumbotron-words">
+          <h1 class="display-4">HANGMAN</h1>
+          <p class="lead">The topic is... famous French horn players!</p>
+          <br>
+          <p class="lead italics">Press any letter to start!</p>
+        </div>
+        
+        <img src="./assets/images/blackhorn.png" class="side-image" id="right-side-image" />
       </div>
     </div>
 
@@ -30,7 +35,7 @@
         <div id="currentWord"></div>
         <br>
         <div id="lettersguessed" class="bold">Letters Guessed: </div>
-        <div id="incorrect">-</div>
+        <div id="incorrect">&nbsp;</div>
         <div id="guesseslefttext" class="bold">Guesses Left: </div>
         <div id="guessesLeft">15</div>
         <div id="winstext" class="bold">Wins: </div>
