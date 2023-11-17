@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // array of words to guess
-    const wordBank = ["Dale Clevenger", "Dennis Brain", "Aubrey Brain", "Barry Tuckwell", "Sarah Willis", "Amber Dean", "Radek Baborak", "Radovan Vlatkovic", "Froydis Ree Wekre", "David Allen Cooper", "Daniel Gingrich", "Otto Carrillo", "Carsten Duffin", "Stefan Dohr", "Denise Tryon", "Julie Landsman"];
+    const wordBank = ["Richard Todd", "Dennis Brain", "Aubrey Brain", "Barry Tuckwell", "Sarah Willis", "Amber Dean", "Radek Baborak", "Radovan Vlatkovic", "Froydis Ree Wekre", "David Allen Cooper", "Daniel Gingrich", "Otto Carrillo", "Carsten Duffin", "Stefan Dohr", "Denise Tryon", "Julie Landsman"];
     const hangmanParts = ["head", "body", "left-arm", "right-arm", "left-leg", "right-leg", "french-horn"]
     // Declare variables
     let randomWord;
@@ -30,9 +30,7 @@ $(document).ready(function () {
         $("#result").empty();
         wordToUnderscores();
         hideHangman();
-        console.log(randomWord);
-        console.log(wordAsArray)
-    }
+    };
 
     function wordToUnderscores() {
         for (let i = 0; i < wordAsArray.length; i++) {
@@ -52,9 +50,10 @@ $(document).ready(function () {
             for (let i = 0; i < wordAsArray.length; i++) {
                 if (letter === wordAsArray[i]) {
                     underscoresArray[i] = letter
+                    // capitalize first letter of names
                     if (underscoresArray[i-1] === " " || i === 0) {
                         underscoresArray[i] = underscoresArray[i].toUpperCase()
-                    }
+                    };
                     document.getElementById("currentWord").innerHTML = underscoresArray.join("");
                 }
                 else if (!guessedLetters.includes(letter) && !wordComplete && (event.which >= 65) && event.which <= 90 && !wordAsArray.includes(letter)) {
@@ -72,6 +71,7 @@ $(document).ready(function () {
         let renderedWord = document.getElementById("currentWord").innerHTML;
         if (renderedWord.indexOf("_") === -1 && guessesLeft > -1) {
             wins++;
+            wordComplete = true;
             $("#wins").html("<span>" + wins + "</span>");
             $("#result").html("<span>" + "YOU WIN!!!!" + "</span>");
         }
